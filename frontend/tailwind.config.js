@@ -9,10 +9,11 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif']
       },
       colors:{
-        backgroundPrimary: "#070F2B",
-        textColor: "#f1f1f1",
-        primary: "#535C91",
-        secondary: "#1B1A55"
+        bgWhite: "#FBFCFF",
+        DeepPurple: "#642CA9",
+        TextBlack: "#020202",
+        AccentPurpleBord: "#9395D3",
+        BlueCol: "#449DD1"
       }
     },
   },
