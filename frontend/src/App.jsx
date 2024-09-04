@@ -7,7 +7,7 @@ import { HelmetProvider } from "react-helmet-async";
 function App() {
   return (
     <HelmetProvider>
-      <div className="h-screen bg-bgWhite">
+      <div className="h-full bg-bgWhite">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

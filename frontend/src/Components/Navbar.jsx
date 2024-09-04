@@ -81,11 +81,11 @@ export const Navbar = () => {
             About Us
           </a>
           <div className="flex items-center mt-3">
-            <div className="h-[40px] w-[40px] bg-bgWhite items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
-              <FaUser size={25} style={{ color: "#020202" }} />
+            <div className="h-[40px] w-[40px] bg-transparent items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
+              <FaUser size={22} style={{ color: "#FBFCFF" }} />
             </div>
             <div className="pl-3">
-              <button className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-semibold">
+              <button className="bg-transparent text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite border-opacity-75 font-semibold hover:bg-AccentPurpleBord hover:bg-opacity-55 transition-all ease-in-out duration-300">
                 SignUp
               </button>
             </div>
@@ -94,11 +94,11 @@ export const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center">
-        <div className="h-[55px] w-[55px] bg-bgWhite items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
-          <FaUser size={30} style={{ color: "#020202" }} />
+        <div className="h-[50px] w-[50px] bg-transparent items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
+          <FaUser size={24} style={{ color: "#FBFCFF" }} />
         </div>
         <div className="pl-3">
-          <button className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-medium">
+          <button className="bg-transparent text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite border-opacity-75 font-semibold hover:bg-AccentPurpleBord hover:bg-opacity-55  transition-all ease-in-out duration-300">
             SignUp
           </button>
         </div>
