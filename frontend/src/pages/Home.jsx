@@ -9,6 +9,8 @@ import dash from "../assets/dash.jpg";
 import Feature from "../Components/Feature";
 import scheduleImg from "../assets/imgSch.png";
 import LineBreak from "../Components/LineBreak";
+import { motion } from "framer-motion";
+import { fadeIn } from "../utils/animations";
 
 export const Home = () => {
   return (
@@ -19,9 +21,12 @@ export const Home = () => {
       <Navbar />
 
       {/* The Main highlight section with CTA button*/}
-      <section className="text-TextBlack w-full flex flex-col lg:flex-row mt-5 px-8">
+      <section
+        id="hero"
+        className="text-TextBlack w-full flex flex-col lg:flex-row mt-5 px-8"
+      >
         <div className="lg:w-1/2 flex flex-col justify-center items-center w-full order-2 lg:order-1">
-          <div className="">
+          <div>
             <h1 className="font-extrabold lg:text-[50px] text-[33px] text-DeepPurple">
               Craft, Send, and
             </h1>
@@ -56,17 +61,20 @@ export const Home = () => {
       <LineBreak cln={"mt-10"} />
 
       {/* The card section to display services*/}
-      <section className="text-TextBlack w-full flex items-center justify-center flex-col lg:flex-col mt-2 px-8">
-        <div className="text-TextBlack pt-5 ">
+      <section
+        id="services"
+        className="text-TextBlack w-full flex items-center justify-center flex-col lg:flex-col mt-2 px-8"
+      >
+        <div className="text-TextBlack pt-5">
           <h1 className="font-extrabold lg:text-[45px] text-[30px] text-TextBlack">
-            What do we offer ?{" "}
+            What do we offer ?
           </h1>
         </div>
 
-        <div className="flex mt-7 w-full gap-28 items-center justify-center">
+        <div className="flex mt-7 w-full gap-28 items-stretch justify-center">
           <Card title={"Email Builder"} img={emailBuilder}>
-            <div className="text-DeepPurple text-center sm:text-left font-medium pt-3 px-6">
-              <p className="">
+            <div className="text-DeepPurple text-center sm:text-left font-medium pt-3">
+              <p>
                 Discover a powerful tool that enables effortless customization
                 of email variables through a simple drag-and-drop interface.
               </p>
@@ -75,7 +83,7 @@ export const Home = () => {
               </p>
             </div>
 
-            <div className="text-TextBlack text-center sm:text-left font-medium pt-3 px-6 pb-11">
+            <div className="text-TextBlack text-center sm:text-left font-medium pt-3 pb-11">
               <h2 className="font-semibold underline">Getting Started:</h2>
               <ul className="list-disc list-inside space-y-2">
                 <li>
@@ -90,18 +98,20 @@ export const Home = () => {
               </ul>
             </div>
           </Card>
-          <div>
-            <div className="h-[500px] w-2  bg-DeepPurple rounded-lg "></div>
+
+          <div className="flex items-center">
+            <div className="h-[500px] w-2 bg-DeepPurple rounded-lg"></div>
           </div>
+
           <Card title={"Dashboard"} img={dash}>
-            <div className="text-DeepPurple text-center sm:text-left font-medium pt-3 px-6">
-              <p className="">
+            <div className="text-DeepPurple text-center sm:text-left font-medium pt-3">
+              <p>
                 Your centralized hub for managing and tracking all your email
                 campaigns.
               </p>
             </div>
 
-            <div className="text-TextBlack text-center sm:text-left font-medium pt-3 px-6 pb-11">
+            <div className="text-TextBlack text-center sm:text-left font-medium pt-3 pb-11">
               <h2 className="font-semibold underline">Dashboard Features:</h2>
               <ul className="list-disc list-inside space-y-2">
                 <li>
@@ -127,7 +137,10 @@ export const Home = () => {
       <LineBreak cln={"mt-20"} />
 
       {/* Highlighting features with this section*/}
-      <section className="text-TextBlack w-full flex items-center justify-center flex-col lg:flex-col mt-1 px-8">
+      <section
+        className="text-TextBlack w-full flex items-center justify-center flex-col lg:flex-col mt-1 px-8"
+        id="schedule"
+      >
         <Feature img={scheduleImg} />
       </section>
 
