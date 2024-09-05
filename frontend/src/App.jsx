@@ -9,7 +9,7 @@ import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
 function App() {
   return (
     <HelmetProvider>
-      <div className="h-screen bg-bgWhite">
+      <div className="h-full bg-bgWhite">
         <Router>
           <Routes>
             {/* Public route: Home page */}

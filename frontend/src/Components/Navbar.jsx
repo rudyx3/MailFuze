@@ -13,35 +13,55 @@ export const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <div className="text-bgWhite w-full h-24 bg-DeepPurple flex items-center justify-between px-8 relative">
+    <div className="text-bgWhite w-full h-24 bg-DeepPurple flex items-center justify-between px-8 sticky top-0 z-50">
       <div>
         <h2 className="text-4xl font-medium">MailFuze</h2>
       </div>
       <div className="hidden md:flex items-center font-medium space-x-16">
-        <a
-          href="#home"
-          className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-        >
-          Home
-        </a>
-        <a
-          href="#email-builder"
-          className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-        >
-          Email Builder
-        </a>
-        <a
-          href="#dashboard"
-          className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-        >
-          Services
-        </a>
-        <a
-          href="#about-us"
-          className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-        >
-          About Us
-        </a>
+        <button>
+          <Link
+            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+            to="hero"
+            smooth={true}
+            offset={-120}
+            duration={350}
+          >
+            Home
+          </Link>
+        </button>
+        <button>
+          <Link
+            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+            to="services"
+            smooth={true}
+            offset={-120}
+            duration={350}
+          >
+            Services
+          </Link>
+        </button>
+        <button>
+          <Link
+            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+            to="schedule"
+            smooth={true}
+            offset={-180}
+            duration={350}
+          >
+            Schedule Emails
+          </Link>
+        </button>
+        <button>
+          <Link
+            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+            to="#"
+            smooth={true}
+            offset={50}
+            duration={350}
+          >
+            About Us
+          </Link>
+        </button>
       </div>
 
       <div className="md:hidden flex items-center">
@@ -62,36 +82,56 @@ export const Navbar = () => {
           </button>
         </div>
         <div className="flex flex-col items-center font-medium space-y-6 mt-10">
-          <a
-            href="#home"
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-          >
-            Home
-          </a>
-          <a
-            href="#email-builder"
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-          >
-            Email Builder
-          </a>
-          <a
-            href="#dashboard"
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-          >
-            Services
-          </a>
-          <a
-            href="#about-us"
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-          >
-            About Us
-          </a>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="hero"
+              smooth={true}
+              offset={-120}
+              duration={350}
+            >
+              Home
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="services"
+              smooth={true}
+              offset={-120}
+              duration={350}
+            >
+              Services
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="schedule"
+              smooth={true}
+              offset={-180}
+              duration={350}
+            >
+              Schedule Emails
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="#"
+              smooth={true}
+              offset={50}
+              duration={350}
+            >
+              About Us
+            </Link>
+          </button>
           <div className="flex items-center mt-3">
-            <div className="h-[40px] w-[40px] bg-bgWhite items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
-              <FaUser size={25} style={{ color: "#020202" }} />
+            <div className="h-[40px] w-[40px] bg-transparent items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
+              <FaUser size={22} style={{ color: "#FBFCFF" }} />
             </div>
             <div className="pl-3">
-              <button className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-semibold">
+              <button className="bg-transparent text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite border-opacity-75 font-semibold hover:bg-AccentPurpleBord hover:bg-opacity-55 transition-all ease-in-out duration-300">
                 SignUp
               </button>
             </div>
@@ -113,7 +153,7 @@ export const Navbar = () => {
           <FaUser size={30} style={{ color: "#020202" }} />
         </div>
         <div className="pl-3">
-          <button className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-medium">
+          <button className="bg-transparent text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite border-opacity-75 font-semibold hover:bg-AccentPurpleBord hover:bg-opacity-55  transition-all ease-in-out duration-300">
             SignUp
           </button>
         </div>

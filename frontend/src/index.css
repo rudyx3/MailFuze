@@ -5,6 +5,26 @@
 @layer base {
   body {
     @apply font-poppins;
-    
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-200;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-AccentPurpleBord ;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-AccentPurpleBord;
   }
 }
