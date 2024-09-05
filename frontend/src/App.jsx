@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -17,14 +18,14 @@ function App() {
             {/* Public route: Login and Signup */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUpPage />} />
-
+           
             {/* Protected route */}
             <Route
               path="/protected"
               element={
                 <SignedIn>
                   {/* Replace this with the component/page for protected content */}
-                  <div>Protected Page: You are logged in!</div>
+                  <Home/>
                 </SignedIn>
               }
             />
@@ -56,6 +57,7 @@ function App() {
               }
             />
  */}
+ 
           </Routes>
         </Router>
       </div>

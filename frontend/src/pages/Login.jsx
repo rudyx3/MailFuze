@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import loginImage from "../assets/login.jpg";
 import Navbar from "../Components/Navbar";
@@ -38,7 +38,7 @@ export const Login = () => {
 
           {/* Right Side: Login Form */}
           <div className="flex-1 flex items-center justify-center p-4 sm:p-8">
-      <SignIn path="/login" routing="path" signUpUrl="/signup" />
+      <SignIn  signUpUrl="/signup" forceRedirectUrl={"/"} />
     </div>
         </div>
       </div>

@@ -1,7 +1,13 @@
+import { UserButton , SignInButton , SignedIn ,SignedOut } from "@clerk/clerk-react";
 import React, { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
-
+import { useNavigate } from "react-router-dom";
 export const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLoginClick = () => {
+    navigate("/login");
+  };
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -92,8 +98,17 @@ export const Navbar = () => {
           </div>
         </div>
       </div>
+      <SignedIn>
+          <UserButton />
+        </SignedIn>
 
-      <div className="hidden md:flex items-center">
+        {/* Show SignInButton when the user is signed out */}
+        <SignedOut>
+        <button  onClick={handleLoginClick} className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-medium">
+            Login
+          </button>
+        </SignedOut>
+{/*       <div className="hidden md:flex items-center">
         <div className="h-[55px] w-[55px] bg-bgWhite items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
           <FaUser size={30} style={{ color: "#020202" }} />
         </div>
@@ -102,7 +117,7 @@ export const Navbar = () => {
             SignUp
           </button>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
