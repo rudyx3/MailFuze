@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import loginImage from "../assets/login.jpg";
 import Navbar from "../Components/Navbar";
-import { SignIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
+import { SignIn} from "@clerk/clerk-react";
 export const Login = () => {
-
 
   return (
     <>
@@ -12,7 +11,7 @@ export const Login = () => {
         <title>Login | MailFuze - Welcome Back</title>
       </Helmet>
       <div className="flex flex-col h-screen bg-gray-100 overflow-hidden">
-        <Navbar />
+        <Navbar type={"login"} />
         <div className="flex-1 flex flex-col lg:flex-row">
           {/* Left Side: Text and Image */}
           <div className="hidden lg:flex lg:flex-1 lg:flex-col lg:items-center lg:justify-center lg:p-4 lg:sm:p-8">
@@ -38,8 +37,8 @@ export const Login = () => {
 
           {/* Right Side: Login Form */}
           <div className="flex-1 flex items-center justify-center p-4 sm:p-8">
-      <SignIn  signUpUrl="/signup" forceRedirectUrl={"/"} />
-    </div>
+            <SignIn signUpUrl="/signup"  />
+          </div>
         </div>
       </div>
     </>

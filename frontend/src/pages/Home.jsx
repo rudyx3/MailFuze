@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
@@ -9,16 +9,37 @@ import dash from "../assets/dash.jpg";
 import Feature from "../Components/Feature";
 import scheduleImg from "../assets/imgSch.png";
 import LineBreak from "../Components/LineBreak";
-import { motion } from "framer-motion";
-import { fadeIn } from "../utils/animations";
+import { useAuth, useUser } from "@clerk/clerk-react";
 
 export const Home = () => {
+  const [userEmail, setUserEmail] = useState("");
+  const [userName, setUserName] = useState("");
+
+  const { isSignedIn } = useAuth();
+  const { user } = useUser();
+
+  //development function working on it
+  const getUserDetails = () => {
+    //this function is used to return the user email from the clerk API
+    if (isSignedIn && user) {
+      //checking if the user data is received
+      const userData = {
+        clerkUserId: user.id,
+        email: user.primaryEmailAddress.emailAddress,
+        username: user.username || "No username",
+      };
+      console.log(user);
+    } else {
+      return null;
+    }
+  };
+
   return (
     <>
       <Helmet>
         <title>MailFuze - Deliver Emails Better</title>
       </Helmet>
-      <Navbar />
+      <Navbar type="home" userName={userName} />
 
       {/* The Main highlight section with CTA button*/}
       <section
@@ -41,7 +62,12 @@ export const Home = () => {
               MailFuze.
             </p>
 
-            <button className="hover:bg-AccentPurpleBord bg-DeepPurple text-bgWhite py-2 px-9 rounded-md mt-3 font-medium text-lg transition-all ease-in duration-200">
+            <button
+              onClick={() => {
+                getUserDetails()
+              }}
+              className="hover:bg-AccentPurpleBord bg-DeepPurple text-bgWhite py-2 px-9 rounded-md mt-3 font-medium text-lg transition-all ease-in duration-200"
+            >
               Try Now
             </button>
           </div>

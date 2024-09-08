@@ -13,7 +13,7 @@ function App() {
         <Router>
           <Routes>
             {/* Public route: Home page */}
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home/>} />
 
             {/* Public route: Login and Signup */}
             <Route path="/login" element={<Login />} />

@@ -1,8 +1,14 @@
-import { UserButton , SignInButton , SignedIn ,SignedOut } from "@clerk/clerk-react";
+import {
+  UserButton,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+} from "@clerk/clerk-react";
 import React, { useState } from "react";
 import { FaUser, FaBars, FaTimes } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-export const Navbar = () => {
+import { Link } from "react-scroll";
+export const Navbar = ({ type , userName}) => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
@@ -17,52 +23,58 @@ export const Navbar = () => {
       <div>
         <h2 className="text-4xl font-medium">MailFuze</h2>
       </div>
-      <div className="hidden md:flex items-center font-medium space-x-16">
-        <button>
-          <Link
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-            to="hero"
-            smooth={true}
-            offset={-120}
-            duration={350}
-          >
-            Home
-          </Link>
-        </button>
-        <button>
-          <Link
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-            to="services"
-            smooth={true}
-            offset={-120}
-            duration={350}
-          >
-            Services
-          </Link>
-        </button>
-        <button>
-          <Link
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-            to="schedule"
-            smooth={true}
-            offset={-180}
-            duration={350}
-          >
-            Schedule Emails
-          </Link>
-        </button>
-        <button>
-          <Link
-            className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
-            to="#"
-            smooth={true}
-            offset={50}
-            duration={350}
-          >
-            About Us
-          </Link>
-        </button>
-      </div>
+
+      {type === "home" ? (
+        <div className="hidden md:flex items-center font-medium space-x-16">
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="hero"
+              smooth={true}
+              offset={-120}
+              duration={350}
+            >
+              Home
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="services"
+              smooth={true}
+              offset={-120}
+              duration={350}
+            >
+              Services
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="schedule"
+              smooth={true}
+              offset={-180}
+              duration={350}
+            >
+              Schedule Emails
+            </Link>
+          </button>
+          <button>
+            <Link
+              className="hover:text-AccentPurpleBord transition-all ease-in-out duration-300"
+              to="#"
+              smooth={true}
+              offset={50}
+              duration={350}
+            >
+              About Us
+            </Link>
+          </button>
+        </div>
+      ) : 
+      (
+        <></>
+      ) }
 
       <div className="md:hidden flex items-center">
         <button onClick={toggleMenu} className="text-white">
@@ -139,16 +151,19 @@ export const Navbar = () => {
         </div>
       </div>
       <SignedIn>
-          <UserButton />
-        </SignedIn>
+        <UserButton /> {userName}
+      </SignedIn>
 
-        {/* Show SignInButton when the user is signed out */}
-        <SignedOut>
-        <button  onClick={handleLoginClick} className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-medium">
-            Login
-          </button>
-        </SignedOut>
-{/*       <div className="hidden md:flex items-center">
+      {/* Show SignInButton when the user is signed out */}
+      <SignedOut>
+        {type === "home" ? <button
+          onClick={handleLoginClick}
+          className="bg-transparent hover:bg-AccentPurpleBord transition-all ease-in duration-300 text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite font-medium"
+        >
+          Login
+        </button> : ""}
+      </SignedOut>
+      {/*       <div className="hidden md:flex items-center">
         <div className="h-[55px] w-[55px] bg-bgWhite items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
           <FaUser size={30} style={{ color: "#020202" }} />
         </div>
