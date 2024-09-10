@@ -5,7 +5,7 @@ import Login from "./pages/Login";
 import SignUpPage from './pages/SignUp' 
 import { HelmetProvider } from "react-helmet-async";
 import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
-
+import EmailBuilder from "./pages/EmailBuilder";
 function App() {
   return (
     <HelmetProvider>
@@ -57,6 +57,7 @@ function App() {
               }
             />
  */}
+            <Route path="/emailbuilder" element={<EmailBuilder />} />
  
           </Routes>
         </Router>
