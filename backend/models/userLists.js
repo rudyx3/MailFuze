@@ -27,6 +27,8 @@ const createUserLists = async () => {
   } catch (err) {
     console.log(err);
   }
+
+
 };
 
 const addAuserLIst = async () => {
@@ -34,7 +36,7 @@ const addAuserLIst = async () => {
   await pool.query(`
     INSERT INTO userlists(userId, listName, senderEmail) VALUES('123912','test list', 'rudraapatel@gmail.com');
 `);
-  console.log("addded a record");
+  console.log("added a record");
 };
 
 addAuserLIst();

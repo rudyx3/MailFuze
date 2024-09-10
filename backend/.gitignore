@@ -1,2 +1,4 @@
 #Removing environment Variables
 .env
+
+/node_modules
