@@ -17,11 +17,4 @@ const pool = new Pool({
   },
 });
 
-async function getPgVersion() {
-  const result = await pool.query(`select version()`);
-  console.log(result);
-}
-
-getPgVersion();
-
 export default pool;

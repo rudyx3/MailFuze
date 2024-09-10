@@ -10,27 +10,25 @@ import Feature from "../Components/Feature";
 import scheduleImg from "../assets/imgSch.png";
 import LineBreak from "../Components/LineBreak";
 import { useAuth, useUser } from "@clerk/clerk-react";
+import axios from "axios";
 
 export const Home = () => {
-  const [userEmail, setUserEmail] = useState("");
-  const [userName, setUserName] = useState("");
-
-  const { isSignedIn } = useAuth();
-  const { user } = useUser();
+  //retreiving the session
+  const session = useAuth();
 
   //development function working on it
-  const getUserDetails = () => {
-    //this function is used to return the user email from the clerk API
-    if (isSignedIn && user) {
-      //checking if the user data is received
-      const userData = {
-        clerkUserId: user.id,
-        email: user.primaryEmailAddress.emailAddress,
-        username: user.username || "No username",
-      };
-      console.log(user);
-    } else {
-      return null;
+  const getUserDetails = async () => {
+    try {
+      const token = session.sessionId;
+      console.log(token);
+      const response = await axios.get("http://localhost:5000/user/lists", {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the request headers
+        },
+      });
+      console.log(response.data);
+    } catch (error) {
+      console.error("Error fetching user lists:", error);
     }
   };
 
@@ -39,7 +37,7 @@ export const Home = () => {
       <Helmet>
         <title>MailFuze - Deliver Emails Better</title>
       </Helmet>
-      <Navbar type="home" userName={userName} />
+      <Navbar type="home" />
 
       {/* The Main highlight section with CTA button*/}
       <section
@@ -64,7 +62,7 @@ export const Home = () => {
 
             <button
               onClick={() => {
-                getUserDetails()
+                getUserDetails();
               }}
               className="hover:bg-AccentPurpleBord bg-DeepPurple text-bgWhite py-2 px-9 rounded-md mt-3 font-medium text-lg transition-all ease-in duration-200"
             >
