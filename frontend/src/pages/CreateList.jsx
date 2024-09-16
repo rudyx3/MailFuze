@@ -13,24 +13,35 @@ const CreateList = () => {
   const [useSameEmail, setUseSameEmail] = useState(true); // State to track user's email preference
   const [newEmail, setNewEmail] = useState(''); // State to store a new email if entered
   const [lists, setLists] = useState([]);   // State to hold fetched list data
-  const [loading, setLoading] = useState(true); // State to track loading
+
   const [error, setError] = useState(null); // State to track errors
 
   useEffect(() => {
-    // Fetch the lists from the backend API
+    // Fetch the lists with token authorization
     const fetchLists = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/user/lists');
+        const token = session.sessionId; // Get the token from session
+        console.log('Token:', token);
+
+        const response = await axios.get("http://localhost:5000/user/lists", {
+          headers: {
+            Authorization: `Bearer ${token}`, // Include the Bearer token in request headers
+          },
+        });
+
         setLists(response.data);  // Set the fetched lists
-      } catch (err) {
+        console.log('Fetched Lists:', response.data);  // Debugging log
+
+      } catch (error) {
         setError('Error fetching lists');  // Handle errors
-      } finally {
-        setLoading(false); // Set loading to false once request is complete
+        console.error("Error fetching user lists:", error);
       }
     };
 
-    fetchLists();
-  }, []);
+    if (session) {
+      fetchLists(); // Only fetch lists if session is available
+    }
+  }, [session]);
 
   // Render the content conditionally based on loading, error, and data states
 /*   if (loading) return <p>Loading...</p>;
