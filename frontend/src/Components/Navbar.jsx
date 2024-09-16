@@ -83,9 +83,8 @@ export const Navbar = ({ type , userName}) => {
       </div>
 
       <div
-        className={`fixed top-0 right-0 w-64 h-full bg-DeepPurple text-bgWhite transform ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        } transition-transform duration-300 ease-in-out md:hidden`}
+        className={`fixed top-0 right-0 w-64 h-full bg-DeepPurple text-bgWhite transform ${isOpen ? "translate-x-0" : "translate-x-full"
+          } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div className="flex items-center justify-between p-4">
           <h2 className="text-3xl font-medium">MailFuze</h2>
@@ -138,18 +137,19 @@ export const Navbar = ({ type , userName}) => {
               About Us
             </Link>
           </button>
-          <div className="flex items-center mt-3">
-            <div className="h-[40px] w-[40px] bg-transparent items-center flex justify-center rounded-full border-AccentPurpleBord border-2">
-              <FaUser size={22} style={{ color: "#FBFCFF" }} />
-            </div>
-            <div className="pl-3">
-              <button className="bg-transparent text-bgWhite py-1 px-4 rounded-lg border-2 border-bgWhite border-opacity-75 font-semibold hover:bg-AccentPurpleBord hover:bg-opacity-55 transition-all ease-in-out duration-300">
-                SignUp
-              </button>
-            </div>
-          </div>
+          <SignedIn>
+            <UserButton />
+          </SignedIn>
+
+          {/* Show SignInButton when the user is signed out */}
+          <SignedOut>
+            <button onClick={handleLoginClick} className="bg-white text-TextBlack py-1 px-4 rounded-lg border-2 border-AccentPurpleBord font-medium">
+              Login
+            </button>
+          </SignedOut>
         </div>
       </div>
+      
       <SignedIn>
         <UserButton /> {userName}
       </SignedIn>
