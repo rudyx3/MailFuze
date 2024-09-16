@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet-async";
 import loginImage from "../assets/login.jpg";
 import Navbar from "../Components/Navbar";
 import { SignIn} from "@clerk/clerk-react";
+
 export const Login = () => {
 
   return (

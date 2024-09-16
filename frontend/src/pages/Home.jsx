@@ -10,6 +10,7 @@ import Feature from "../Components/Feature";
 import scheduleImg from "../assets/imgSch.png";
 import LineBreak from "../Components/LineBreak";
 import { useAuth, useUser } from "@clerk/clerk-react";
+
 import axios from "axios";
 
 export const Home = () => {
