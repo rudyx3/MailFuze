@@ -94,12 +94,9 @@ const CreateList = () => {
             {/* Use Available List Section */}
             <div className="flex-1 p-6">
               <h2 className="text-xl font-bold text-purple-700 mb-4">Use Available List</h2>
-             <div className="space-y-4">
-      {/* If there are no lists, render nothing */}
-      {lists.length === 0 ? (
-        <p className='text-black'>No lists available.</p>
-      ) : (
-        // Map over the fetched lists and render them dynamically
+              <div className="space-y-4">
+      {/* Render nothing if there are no lists */}
+      {Array.isArray(lists) && lists.length > 0 ? (
         lists.map((list, index) => (
           <div
             key={index}
@@ -108,7 +105,7 @@ const CreateList = () => {
             <span className="font-bold text-lg text-black">{list.name}</span>
             <div className="flex items-center space-x-4">
               <span className="flex items-center justify-center bg-white w-8 h-8 rounded-full shadow-md">
-                ✉️ {list.emailCount || 0} {/* Display email count if available */}
+                ✉️ {list.emailCount || 0}
               </span>
               <button className="bg-blue-500 text-white px-4 py-1 rounded hover:bg-blue-600 transition">
                 Use
@@ -116,6 +113,8 @@ const CreateList = () => {
             </div>
           </div>
         ))
+      ) : (
+        <p>No lists available.</p>
       )}
     </div>
 
